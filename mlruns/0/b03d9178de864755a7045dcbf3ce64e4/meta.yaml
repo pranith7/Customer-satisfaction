@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/Customer-satisfaction/mlruns/0/b03d9178de864755a7045dcbf3ce64e4/artifacts
+end_time: 1697906567494
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b03d9178de864755a7045dcbf3ce64e4
+run_name: welcoming-panda-448
+run_uuid: b03d9178de864755a7045dcbf3ce64e4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1697906564947
+status: 3
+tags: []
+user_id: codespace

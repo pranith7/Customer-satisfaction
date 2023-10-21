@@ -11,9 +11,8 @@ from zenml.client import Client
 experiment_tracker = Client().active_stack.experiment_tracker
 
 
-
-# @step(experiment_tracker=experiment_tracker.name)
-@step()
+# @step
+@step(experiment_tracker=experiment_tracker.name)
 def train_df(
     X_train: pd.DataFrame,
     X_test: pd.DataFrame,
