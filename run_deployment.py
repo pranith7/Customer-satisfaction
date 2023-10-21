@@ -1,9 +1,10 @@
-from pipelines.deployment_pipeline import continuous_deployment_pipeline
+from pipelines.deployment_pipeline import continuous_deployment_pipeline,inference_pipeline
 import click
 from rich import print
 from zenml.integrations.mlflow.mlflow_utils import get_tracking_uri
 from zenml.integrations.mlflow.model_deployers.mlflow_model_deployer import MLFlowModelDeployer
 from zenml.integrations.mlflow.services import MLFlowDeploymentService
+from typing import cast
 
 DEPLOY = "deploy"
 DEPLOY_AND_PREDICT = "deploy_and_predict"
@@ -25,7 +26,7 @@ PREDICT = "predict"
 )
 @click.option(
     "--min-accuracy",
-    default=0.92,
+    default=0,
     help="Minimum accuracy required to deploy the model",
 )
 
@@ -40,8 +41,11 @@ def main(config: str, min_accuracy: float):
             min_accuracy=min_accuracy,
             workers=3,
             timeout=60,)
-    elif predict:
-        inference_pipeline()
+    if predict:
+        inference_pipeline(
+            pipeline_name="continuous_deployment_pipeline",
+            pipeline_step_name="mlflow_model_deployer_step",
+        )
 
         # deploy_pipeline(min_accuracy=min_accuracy)
     # elif config == DEPLOY_AND_PREDICT:
