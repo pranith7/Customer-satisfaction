@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/Customer-satisfaction/mlruns/0/8c87766900dd4582a725d341b5ce2974/artifacts
+end_time: 1697905452089
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8c87766900dd4582a725d341b5ce2974
+run_name: intelligent-cod-522
+run_uuid: 8c87766900dd4582a725d341b5ce2974
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1697905448583
+status: 3
+tags: []
+user_id: codespace

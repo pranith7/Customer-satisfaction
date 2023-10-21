@@ -37,11 +37,12 @@ def deployment_trigger_step(
 
 @pipeline(enable_cache=True,settings={"docker": docker_settings})
 def continuous_deployment_pipeline(
+    data_path: str,
     min_accuracy: float=0.92,
     workers: int=1,
     timeout: int=DEFAULT_SERVICE_START_STOP_TIMEOUT,
 ):
-    df = ingest_df()
+    df = ingest_df(data_path=data_path)
     X_train,X_test,y_train, y_test = clean_df(df)
     model = train_df(X_train,X_test,y_train,y_test) 
     r2_score,rmse = evaluate_model(model,X_test,y_test)
@@ -52,4 +53,3 @@ def continuous_deployment_pipeline(
         workers=workers,
         timeout=timeout,
     )
-
